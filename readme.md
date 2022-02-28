@@ -1,16 +1,15 @@
-# KANVAS
-um sistema voltado para o ensino. É possível cadastrar estudantes, facilitadores e instrutores, proporcionando aos estudantes cursos e atividades. Nesse sistema o aluno encontra aulas em formato escrito e por videos proporcionadas pelos instrutores e com auxilio dos facilitadores, atividades para praticar o que aprendeu para assimilar e é possível enviar essas atividades para a correção do time de ensino, recebendo depois todo o feedback sobre seu desempenho.
-
+# GENERETOR
+um gerador de horários para as escolas
 
 ## 1 - Como rodar o projeto ? entre no terminal e siga o passo a passo abaixo:
 
 #### 1.1 - Faça o clone do repositório:
-``` git clone git@gitlab.com:diogo__.py/kanvas.git ``` <br />
+``` git clone https://github.com/DgSantos017/generettor-scholl ``` <br />
 ou <br />
-``` https://gitlab.com/diogo__.py/kanvas.git ``` 
+``` git clone https://github.com/DgSantos017/generettor-scholl ``` 
 
 #### 1.2 - entre no diretório do repositório clonado:
-``` cd kanvas ``` 
+``` cd generettor-scholl ``` 
 
 #### 1.3 - crie um ambiente virtual:
 ``` python -m venv venv``` 
@@ -28,7 +27,7 @@ ou <br />
 #### 1.7 - por fim, inicie o servidor para rodar o projeto:
 ``` python manage.py runserver ```
 ##### 1.7.1 - se todos os passos foram bem executados, seu projeto vai rodar localmente no seguinte endereço:
-https://dkanvas.herokuapp.com/
+http://localhost:8000/
 
 
 # deseja consumir a API ? segue abaixo todos os endpoints:
@@ -37,64 +36,33 @@ https://dkanvas.herokuapp.com/
 
 ### 2.1 - Cadastrar
 
-#### 2.1.1 - Aluno
-
-#### POST - ```https://dkanvas.herokuapp.com/api/accounts/```
+#### POST - ```http://localhost:8000/api/accounts/```
 ```json
 // BODY REQUEST
 {
-    "username": "Student",
+    "username": "Drica",
     "password": "1234",
-    "is_superuser": false, 
-    "is_staff": false 
-}
-    
-```
-#### 2.1.2 - Facilitador
-
-#### POST - ```https://dkanvas.herokuapp.com/api/accounts/```
-```json
-// BODY REQUEST
-{
-    "username": "Facilitator",
-    "password": "1234",
-    "is_superuser": false, 
-    "is_staff": true 
-}
-    
-```
-
-#### 2.1.3 - Instructor
-
-#### POST - ```https://dkanvas.herokuapp.com/api/accounts/```
-```json
-// BODY REQUEST
-{
-    "username": "Instructor",
-    "password": "1234",
-    "is_superuser": true, 
-    "is_staff": true 
-}
-    
+  	"email": "d@gmail.com"
+}  
 ```
 
 ```json
 // RESPONSE STATUS -> HTTP 201
 {
-    "id": 1,
-    "username": "Student",
-    "is_superuser": false,
-    "is_staff": false
+	"id": 1,
+	"username": "Drica",
+	"email": "d@gmail.com",
+	"is_superuser": true
 }
 ```
 
 ### 2.2 - Login
 
-#### POST - ```https://dkanvas.herokuapp.com/api/login/```
+#### POST - ```http://localhost:8000/api/login/```
 ```json
 // BODY REQUEST
 {
-    "username": "Student",
+    "username": "Drica",
     "password": "1234"
 }
     
@@ -107,15 +75,15 @@ https://dkanvas.herokuapp.com/
 }
 ```
 
-## 3 - CURSO
+## 3 - MATERIAS
 
-### 3.1 - Cadastrar (somente instrutor )
+### 3.1 - Cadastrar
 
-#### POST - ```https://dkanvas.herokuapp.com/api/courses/```
+#### POST - ```http://localhost:8000/api/materias/```
 ```json
 // BODY REQUEST
 {
-    "name": "Node"
+	"name_materia": "Programacao"
 }
     
 ```
@@ -123,317 +91,38 @@ https://dkanvas.herokuapp.com/
 ```json
 // RESPONSE STATUS -> HTTP 201
 {
-    "id": 1,
-    "name": "Node",
-    "users": []
+	"id": 1,
+	"name_materia": "Programacao",
+	"qtd_aulas": 0
 }
 ```
 
-### 3.2 - Listar cursos e alunos matriculdos
-#### GET - ```https://dkanvas.herokuapp.com/api/courses/```
+### 3.2 - Listar materias
+#### GET - ```http://localhost:8000/api/materias/```
 
 ```json
 // RESPONSE STATUS -> HTTP 200
 [
-    {
-        "id": 1,
-        "name": "Node",
-        "users": [
-            {
-                "id": 3,
-                "username": "student1"
-            }
-        ]
-    },
-    {
-        "id": 2,
-        "name": "Django",
-        "users": []
-    },
-    {
-        "id": 3,
-        "name": "React",
-        "users": []
-    }
+	{
+		"id": 1,
+		"name_materia": "Fisica",
+		"qtd_aulas": 0
+	},
+	{
+		"id": 2,
+		"name_materia": "Quimica",
+		"qtd_aulas": 0
+	},
+	{
+		"id": 3,
+		"name_materia": "Programacao",
+		"qtd_aulas": 0
+	}
 ]
 ```
 
 
-### 3.3 - Exibir curso por ID
-
-#### GET - ```https://dkanvas.herokuapp.com/api/courses/<int:course_id>/```
-
-```json
-// RESPONSE STATUS -> HTTP 200
-{
-    "id": 1,
-    "name": "Node",
-    "users": [
-        {
-            "id": 3,
-            "username": "student1"
-        }
-    ]
-}
-```
-
-### 3.4 - Editar (somente instrutor)
-
-#### PUT - ```https://dkanvas.herokuapp.com/api/courses/<int:course_id>/```
-```json
-// BODY REQUEST
-{
-    "name": "Python Django"
-}
-    
-```
-
-```json
-// RESPONSE STATUS -> HTTP 200
-{
-    "id": 1,
-    "name": "Python Django",
-    "users": []
-}
-```
-
-### 3.5 - Excluir (somente instrutor)
-
-#### DELETE - ```https://dkanvas.herokuapp.com/api/courses/<int:course_id>/```
-```json
- // RESPONSE STATUS -> HTTP 204 NO CONTENT
-```
-
-### 3.6 - Vincular os alunos ao curso (somente instrutor)
-
-#### PUT - ```https://dkanvas.herokuapp.com/api/courses/<int:course_id>/registrations/```
-```json
-// BODY REQUEST
-{
-    "user_ids": [3, 4, 5]
-}
-    
-```
-
-
-```json
-// RESPONSE STATUS -> HTTP 200
-{
-    "id": 1,
-    "name": "Node",
-    "users": [
-        {
-        "id": 3,
-        "username": "student1"
-        },
-        {
-        "id": 4,
-        "username": "student2"
-        },
-        {
-        "id": 5,
-        "username": "student3"
-        }
-    ]
-}
-```
-
-## 4 - ATIVIDADES
-
-### 4.1 - Criar atividade (somente instrutor ou facilitador )
-
-#### POST - ```https://dkanvas.herokuapp.com/api/activities/```
-```json
-// BODY REQUEST
-{
-    "title": "Kenzie Pet",
-    "points": 10
-}
-    
-```
-
-
-```json
-// RESPONSE STATUS -> HTTP 201
-{
-    "id": 1,
-    "title": "Kenzie Pet",
-    "points": 10,
-    "submissions": []
-}
-```
-
-### 4.2 - Listar atividades com suas submissões (somente instrutor ou facilitador)
-
-#### GET - ```https://dkanvas.herokuapp.com/api/activities/```
-
-```json
-// RESPONSE STATUS -> HTTP 200
-[
-    {
-        "id": 1,
-        "title": "Kenzie Pet",
-        "points": 10,
-        "submissions": [
-            {
-                "id": 1,
-                "grade": 10,
-                "repo": "http://gitlab.com/kenzie_pet",
-                "user_id": 3,
-                "activity_id": 1
-            }
-        ]
-    },
-    {
-        "id": 2,
-        "title": "Kanvas",
-        "points": 10,
-        "submissions": [
-            {
-                "id": 2,
-                "grade": 8,
-                "repo": "http://gitlab.com/kanvas",
-                "user_id": 4,
-                "activity_id": 2
-            }
-        ]
-    }
-]
-```
-
-
-### 4.3 - Editar atividade (somente instrutor ou facilitador)
-
-#### PUT - ```https://dkanvas.herokuapp.com/api/activities/<int:activity_id>/```
-```json
-// BODY REQUEST
-{
-    "title": "Kenzie DOGS",
-    "points": 30
-}
-    
-```
-
-```json
-// RESPONSE STATUS -> HTTP 200
-{
-    "id": 1,
-    "title": "Kenzie DOGS",
-    "points": 30,
-    "submissions": []
-}
-```
-
-## 5 - SUBMISSÃO
-
-### 5.1 - Aluno entregar atividade(somente aluno)
-
-#### POST - ```https://dkanvas.herokuapp.com/api/activities/<int:activity_id>/submissions/```
-```json
-// BODY REQUEST
-{ 
-    "repo": "http://gitlab.com/kenzie_pet"
-}
-    
-```
-
-```json
-// RESPONSE STATUS -> HTTP 201
-{
-    "id": 7,
-    "grade": null,
-    "repo": "http://gitlab.com/kenzie_pet",
-    "user_id": 3,
-    "activity_id": 1
-}
-```
-
-### 5.2 - Editar nota da atividade (somente instrutor ou facilitador)
-
-#### PUT - ```https://dkanvas.herokuapp.com/api/submissions/<int:submission_id>/```
-```json
-// BODY REQUEST
-{
-    "grade": 10
-}
-    
-```
-
-
-```json
-// RESPONSE STATUS -> HTTP 200
-{
-    "id": 3,
-    "grade": 10,
-    "repo": "http://gitlab.com/kenzie_pet",
-    "user_id": 3,
-    "activity_id": 1
-}
-```
-
-
-### 5.3 - Listar as submissões (estudante só pode ver as próprias submissões, enquanto facilitador ou instrutor pode ver todas) 
-
-#### GET - ```https://dkanvas.herokuapp.com/api/submissions/```
-
-#### 5.3.1 - COMO ESTUDANTES PARA VER APENAS SUAS SUBMISSÕES:
-
-```json
-// RESPONSE STATUS -> HTTP 200
-[
-    {
-        "id": 2,
-        "grade": 8,
-        "repo": "http://gitlab.com/kanvas",
-        "user_id": 4,
-        "activity_id": 2
-    },
-    {
-        "id": 5,
-        "grade": null,
-        "repo": "http://gitlab.com/kmdb2",
-        "user_id": 4,
-        "activity_id": 1
-    }
-]
-```
-
-#### 5.3.2 - COMO INSTRUTORES OU FACILITADORES PARA VER TODAS AS SUBMISSÕES:
-
-#### GET - ```https://dkanvas.herokuapp.com/api/submissions/```
-```json
-// RESPONSE STATUS -> HTTP 200
-[
-    {
-        "id": 1,
-        "grade": 10,
-        "repo": "http://gitlab.com/kenzie_pet",
-        "user_id": 3,
-        "activity_id": 1
-    },
-    {
-        "id": 2,
-        "grade": 8,
-        "repo": "http://gitlab.com/kanvas",
-        "user_id": 4,
-        "activity_id": 2
-    },
-    {
-        "id": 3,
-        "grade": 4,
-        "repo": "http://gitlab.com/kmdb",
-        "user_id": 5,
-        "activity_id": 3
-    },
-    {
-        "id": 4,
-        "grade": null,
-        "repo": "http://gitlab.com/kmdb2",
-        "user_id": 5,
-        "activity_id": 3
-    }
-]
-```
+  
 
 ## 6 - EXCEÇÕES
 
