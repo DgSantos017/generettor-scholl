@@ -1,3 +1,5 @@
 venv/
 *pyc
-*.banco.txt
+db.sqlite3
+relacionamentosKanvas.png
+requests_insomnia.json
