@@ -262,6 +262,87 @@ http://localhost:8000/
 
 ```
 
+## 4 - PROFESSORES
+
+### 4.1 - Cadastrar professores
+
+#### POST - ```http://localhost:8000/professores/```
+```json
+// BODY REQUEST
+{
+   "name_professor": "Drica"
+}
+    
+```
+
+```json
+// RESPONSE STATUS -> HTTP 201 CREATED
+{
+   "id": 1,
+   "name_professor": "Drica",
+}
+```
+
+### 4.2 - Listar professores
+
+#### GET - ```http://localhost:8000/professores/```
+
+```json
+// RESPONSE STATUS -> HTTP 200 OK
+[
+  {
+    "id": 1,
+    "name_professor": "Drica"
+  },
+  {
+    "id": 2,
+    "name_professor": "Diogo"
+  }
+]
+```
+
+### 4.3 - Listar professor(a) especifico por ID
+
+#### GET - ```http://localhost:8000/professor/2```
+
+```json
+// RESPONSE STATUS -> HTTP 200 OK
+
+{
+  "id": 2,
+  "name_professor": "Diogo"
+}
+```
+
+### 3.6 - Editar nome do professor(a)
+
+#### PUT - ```http://localhost:8000/professor/2```
+```json
+// BODY REQUEST
+{
+  "name_professor": "Diguim santos"
+}
+    
+```
+
+```json
+// RESPONSE STATUS -> HTTP 200 OK
+
+{
+  "id": 2,
+  "name_professor": "Diguim santos"
+}
+```
+
+### 3.7 - Deletar professor
+
+#### DELETE - ```http://localhost:8000/professor/2```
+
+```json
+// RESPONSE STATUS -> HTTP 204 NO CONTENT
+
+```
+
   
 
 ## 6 - EXCEÇÕES
