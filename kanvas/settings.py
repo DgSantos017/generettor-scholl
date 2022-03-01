@@ -1,4 +1,6 @@
 from pathlib import Path
+from  corsheaders.defaults  import  default_methods 
+from  corsheaders.defaults  import  default_headers 
 import dj_database_url
 import os
 
@@ -38,11 +40,10 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS  =  [ 
     "https://dgeneretord.herokuapp.com/", 
-    "http://localhost:8000", 
-    "http://localhost:3000" 
+    "http://localhost:3000/" 
 ]
 
-CORS_ALLOW_ALL_ORIGINS: True
+CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOW_METHODS  =  [ 
     "DELETE", 
@@ -65,11 +66,14 @@ CORS_ALLOW_HEADERS = [
     "x-requested-with",
 ]
 
+CORS_ALLOW_METHODS  =  list ( default_methods )  +  [ 
+    "POKE" , 
+]
 
 CORS_ALLOWED_ORIGINS  =  [ 
     "https://dgeneretord.herokuapp.com/", 
-    "http://localhost:8000", 
-    "http://localhost:3000"  
+    "http://localhost:8000/", 
+    "http://localhost:3000/"  
 ] 
 
 CSRF_TRUSTED_ORIGINS  =  [ 
@@ -78,12 +82,20 @@ CSRF_TRUSTED_ORIGINS  =  [
     "http://localhost:3000"  
 ]
 
-MIDDLEWARE_CLASSES  =  [ 
-
-    "corsheaders.middleware.CorsMiddleware" , 
-    "django.middleware.csrf.CsrfViewMiddleware" , 
-    "corsheaders.middleware.CorsPostCsrfMiddleware"
+MIDDLEWARE_CLASSES = [
+    ...,
+    "corsheaders.middleware.CorsMiddleware",
+    ...,
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "corsheaders.middleware.CorsPostCsrfMiddleware",
+    ...,
 ]
+
+CORS_ALLOW_HEADERS  =  list ( default_headers )  +  [ 
+    "my-custom-header" , 
+]
+
+CORS_REPLACE_HTTPS_REFERER: True
 
 ROOT_URLCONF = 'kanvas.urls'
 
