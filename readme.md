@@ -420,7 +420,7 @@ http://localhost:8000/
 
 ### 5.3 - Listar turmas
 
-#### PUT - ```http://localhost:8000/materia/1/aulas/```
+#### GET - ```http://localhost:8000/turmas/```
 
 
 ```json
@@ -475,74 +475,54 @@ http://localhost:8000/
 ]
 ```
 
-### 3.4 - Listar materias
+### 5.4 - Listar turma especifica por ID
 
-#### GET - ```http://localhost:8000/materias/```
+#### GET - ```http://localhost:8000/turma/1```
 
-```json
-// RESPONSE STATUS -> HTTP 200 OK
-[
-  {
-    "id": 1,
-    "name_materia": "Programacao",
-    "qtd_aulas": 8,
-    "professores": [
-      {
-       "id": 1,
-       "name_professor": "Drica"
-      },
-      {
-       "id": 2,
-       "name_professor": "Diogo"
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "name_materia": "Fisica",
-    "qtd_aulas": 0,
-    "professores": []
-  },
-  {
-    "id": 3,
-    "name_materia": "Astronomia",
-    "qtd_aulas": 0,
-    "professores": []
-  }
-]
-```
-
-### 3.5 - Listar materia especifica por ID
-
-#### GET - ```http://localhost:8000/materia/1```
 
 ```json
 // RESPONSE STATUS -> HTTP 200 OK
-
 {
-    "id": 1,
-    "name_materia": "Programacao",
-    "qtd_aulas": 8,
-    "professores": [
-      {
-       "id": 1,
-       "name_professor": "Drica"
-      },
-      {
-       "id": 2,
-       "name_professor": "Diogo"
-      }
-    ]
-  }
+   "id": 1,
+   "name_turma": "Labenu",
+   "turno": "Vespertino",
+   "materias": [
+	   {
+	     "id": 1,
+	     "name_materia": "Programacao",
+		 "qtd_aulas": 8,
+		 "professores": [
+		   {
+			"id": 1,
+			"name_professor": "Drica"
+		   },
+		   {
+			"id": 2,
+			"name_professor": "Diogo"
+		   }
+		]
+	   },
+	   {
+	     "id": 2,
+	     "name_materia": "Fisica",
+		 "qtd_aulas": 0,
+		 "professores": []
+	   },
+	   {
+	     "id": 3,
+	     "name_materia": "Astronomia",
+		 "qtd_aulas": 0,
+		 "professores": []
+	   }
 ```
 
-### 3.6 - Editar nome da materia
+### 5.5 - Editar nome da turma
 
-#### PUT - ```http://localhost:8000/materia/1```
+#### PUT - ```http://localhost:8000/turma/2```
 ```json
 // BODY REQUEST
 {
-  "name_materia": "Desenvolvimento backEnd"
+  "name_turma": "Kenzie Academy"
 }
     
 ```
@@ -551,25 +531,17 @@ http://localhost:8000/
 // RESPONSE STATUS -> HTTP 200 OK
 
 {
-    "id": 1,
-    "name_materia": "Desenvolvimento backEnd",
-    "qtd_aulas": 8,
-    "professores": [
-      {
-       "id": 1,
-       "name_professor": "Drica"
-      },
-      {
-       "id": 2,
-       "name_professor": "Diogo"
-      }
-    ]
+   "id": 2,
+   "name_turma": "Kenzie Academy",
+   "turno": "Matutino",
+   "materias": []
   }
 ```
 
-### 3.7 - Deletar materia
+### 5.6 - Deletar turma
 
-#### DELETE - ```http://localhost:8000/materia/2```
+
+#### DELETE - ```http://localhost:8000/turma/2```
 
 ```json
 // RESPONSE STATUS -> HTTP 204 NO CONTENT
