@@ -101,12 +101,12 @@ http://localhost:8000/
 
 ### 3.2 - adicionar professores para lecionar as materias
 
-#### PUT - ```https://dgeneretord.herokuapp.com/materia/1/professores/```
+#### PUT - ```https://dgeneretord.herokuapp.com/materia/1/professor/```
 
 ```json
 // BODY REQUEST
 {
-   "id_professores": [1, 2]
+   "id_professor": [1, 2]
 }
     
 ```
