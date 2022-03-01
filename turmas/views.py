@@ -1,5 +1,5 @@
 from accounts.permissions import Instructor
-from professores.models import CadastrarProfessores
+from materias.models import RegisterMaterias
 from .models import RegisterTurmas
 from .serializers import TurmaSerializer
 from django.db.utils import IntegrityError
@@ -17,17 +17,17 @@ class RegistrationTurma(APIView):
     def put(self, request, turma_id):
         try:
             turma = RegisterTurmas.objects.get(id=turma_id)
-            id_professores = request.data['id_professores']
+            id_materias = request.data['id_materias']
             
-            if type(id_professores) == list:
+            if type(id_materias) == list:
 
-                turma.professores.set([])
+                turma.materias.set([])
 
-                for id in id_professores:
-                    professor = CadastrarProfessores.objects.get(id=id)
-                    turma.professores.add(professor)
+                for id in id_materias:
+                    materia = RegisterMaterias.objects.get(id=id)
+                    turma.materias.add(materia)
                 
-                professor.save()
+                materia.save()
                 serializer = TurmaSerializer(turma)
 
                 return Response(serializer.data)
@@ -37,8 +37,8 @@ class RegistrationTurma(APIView):
         except RegisterTurmas.DoesNotExist:
             return Response({'errors': 'invalid id_turma'}, status=404)
 
-        except CadastrarProfessores.DoesNotExist:
-            return Response({"error": "invalid professor_id list"}, status=404)
+        except RegisterMaterias.DoesNotExist:
+            return Response({"error": "invalid materia_id list"}, status=404)
 
        
 class Turmas(APIView):
@@ -70,48 +70,48 @@ class Turmas(APIView):
             return {'Ainda não foi registrado nenhuma turma'}, 204
 
 
-# class CourseById(APIView):
-#     authentication_classes = [TokenAuthentication]
-#     permission_classes = [Instructor]
+class TurmaById(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [Instructor]
 
-#     def put(self, request, course_id):
-#         try:
-#             course = Course.objects.get(id=course_id)
-#             name = request.data['name']
-#             course.name = name
-#             course.save()
-#             serializer = CourseSerializer(course)
+    def put(self, request, turma_id):
+        try:
+            turma = RegisterTurmas.objects.get(id=turma_id)
+            name_turma = request.data['name_turma']
+            turma.name_turma = name_turma
+            turma.save()
+            serializer = TurmaSerializer(turma)
 
-#             return Response(serializer.data, status=200)
+            return Response(serializer.data, status=200)
             
-#         except KeyError as e:
-#             return Response({"error": f"{str(e)} is missing"}, status=400)
+        except KeyError as e:
+            return Response({"error": f"{str(e)} is missing"}, status=400)
 
-#         except Course.DoesNotExist:
-#             return Response({'errors': 'invalid course_id'}, status=404)
+        except RegisterTurmas.DoesNotExist:
+            return Response({'errors': 'invalid turma_id'}, status=404)
 
-#         except IntegrityError:
-#             return Response({"error": "Course with this name already exists"}, status=400)
+        except IntegrityError:
+            return Response({"error": "Turma with this name already exists"}, status=400)
 
 
-#     def get(self, request, course_id):
-#         try:
-#             course = Course.objects.get(id=course_id)
-#             serializer = CourseSerializer(course)
-#             return Response(serializer.data, status=200)
+    def get(self, request, turma_id):
+        try:
+            turma = RegisterTurmas.objects.get(id=turma_id)
+            serializer = TurmaSerializer(turma)
+            return Response(serializer.data, status=200)
 
-#         except Course.DoesNotExist:
-#             return Response({'errors': 'invalid course_id'}, status=404)
+        except RegisterTurmas.DoesNotExist:
+            return Response({'errors': 'invalid turma_id'}, status=404)
 
-#     def delete(self, request, course_id):
-#         try:
-#             course = Course.objects.get(id=course_id)
-#             course.delete()
+    def delete(self, request, turma_id):
+        try:
+            turma = RegisterTurmas.objects.get(id=turma_id)
+            turma.delete()
 
-#             return Response('', status=204)
+            return Response('', status=204)
 
-#         except Course.DoesNotExist:
-#             return Response({'errors': 'invalid course_id'}, status=404)
+        except RegisterTurmas.DoesNotExist:
+            return Response({'errors': 'invalid turma_id'}, status=404)
 
 
 

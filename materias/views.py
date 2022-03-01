@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from accounts.permissions import Instructor
 from .models import RegisterMaterias
+from professores.models import CadastrarProfessores
 from .serializers import MateriasSerializer
 from django.db.utils import IntegrityError
 
@@ -8,7 +9,37 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
- 
+
+class RegistrationMateria(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [Instructor]
+
+    def put(self, request, materia_id):
+        try:
+            materia = RegisterMaterias.objects.get(id=materia_id)
+            id_professores = request.data['id_professores']
+            
+            if type(id_professores) == list:
+
+                materia.professores.set([])
+
+                for id in id_professores:
+                    professor = CadastrarProfessores.objects.get(id=id)
+                    materia.professores.add(professor)
+                
+                materia.save()
+                serializer = RegisterMaterias(materia)
+
+                return Response(serializer.data)
+            else:
+                return Response({'error': 'you need to enter a list of professores'}, 400)
+
+        except CadastrarProfessores.DoesNotExist:
+            return Response({'errors': 'invalid id_professor'}, status=404)
+
+        except RegisterMaterias.DoesNotExist:
+            return Response({"error": "invalid professor_id list"}, status=404)
+
 class Materias(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [Instructor]

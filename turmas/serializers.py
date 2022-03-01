@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from professores.serializers import ProfessorSerializer
+from materias.serializers import MateriasSerializer
 
 class TurmaSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     name_turma = serializers.CharField()
     turno = serializers.CharField()
-    professores = ProfessorSerializer(many=True)
+    materias = MateriasSerializer(many=True)
