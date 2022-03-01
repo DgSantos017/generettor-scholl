@@ -36,7 +36,7 @@ http://localhost:8000/
 
 ### 2.1 - Cadastrar
 
-#### POST - ```http://localhost:8000/register/```
+#### POST - ```https://dgeneretord.herokuapp.com/register/```
 ```json
 // BODY REQUEST
 {
@@ -58,7 +58,7 @@ http://localhost:8000/
 
 ### 2.2 - Login
 
-#### POST - ```http://localhost:8000/login/```
+#### POST - ```https://dgeneretord.herokuapp.com/login/```
 ```json
 // BODY REQUEST
 {
@@ -79,7 +79,7 @@ http://localhost:8000/
 
 ### 3.1 - Cadastrar materias
 
-#### POST - ```http://localhost:8000/materias/```
+#### POST - ```https://dgeneretord.herokuapp.com/materias/```
 ```json
 // BODY REQUEST
 {
@@ -101,7 +101,7 @@ http://localhost:8000/
 
 ### 3.2 - adicionar professores para lecionar as materias
 
-#### PUT - ```http://localhost:8000/materia/1/professores/```
+#### PUT - ```https://dgeneretord.herokuapp.com/materia/1/professores/```
 
 ```json
 // BODY REQUEST
@@ -132,7 +132,7 @@ http://localhost:8000/
 
 ### 3.3 - Selecionar quantidade de aulas por matéria
 
-#### PUT - ```http://localhost:8000/materia/1/aulas/```
+#### PUT - ```https://dgeneretord.herokuapp.com/materia/1/aulas/```
 
 ```json
 // BODY REQUEST
@@ -163,7 +163,7 @@ http://localhost:8000/
 
 ### 3.4 - Listar materias
 
-#### GET - ```http://localhost:8000/materias/```
+#### GET - ```https://dgeneretord.herokuapp.com/materias/```
 
 ```json
 // RESPONSE STATUS -> HTTP 200 OK
@@ -200,7 +200,7 @@ http://localhost:8000/
 
 ### 3.5 - Listar materia especifica por ID
 
-#### GET - ```http://localhost:8000/materia/1```
+#### GET - ```https://dgeneretord.herokuapp.com/materia/1```
 
 ```json
 // RESPONSE STATUS -> HTTP 200 OK
@@ -224,7 +224,7 @@ http://localhost:8000/
 
 ### 3.6 - Editar nome da materia
 
-#### PUT - ```http://localhost:8000/materia/1```
+#### PUT - ```https://dgeneretord.herokuapp.com/materia/1```
 ```json
 // BODY REQUEST
 {
@@ -255,7 +255,7 @@ http://localhost:8000/
 
 ### 3.7 - Deletar materia
 
-#### DELETE - ```http://localhost:8000/materia/2```
+#### DELETE - ```https://dgeneretord.herokuapp.com/materia/2```
 
 ```json
 // RESPONSE STATUS -> HTTP 204 NO CONTENT
@@ -266,7 +266,7 @@ http://localhost:8000/
 
 ### 4.1 - Cadastrar professor(a)
 
-#### POST - ```http://localhost:8000/professores/```
+#### POST - ```https://dgeneretord.herokuapp.com/professores/```
 ```json
 // BODY REQUEST
 {
@@ -285,7 +285,7 @@ http://localhost:8000/
 
 ### 4.2 - Listar professores
 
-#### GET - ```http://localhost:8000/professores/```
+#### GET - ```https://dgeneretord.herokuapp.com/professores/```
 
 ```json
 // RESPONSE STATUS -> HTTP 200 OK
@@ -303,7 +303,7 @@ http://localhost:8000/
 
 ### 4.3 - Listar professor(a) especifico por ID
 
-#### GET - ```http://localhost:8000/professor/2```
+#### GET - ```https://dgeneretord.herokuapp.com/professor/2```
 
 ```json
 // RESPONSE STATUS -> HTTP 200 OK
@@ -316,7 +316,7 @@ http://localhost:8000/
 
 ### 4.4 - Editar nome do professor(a)
 
-#### PUT - ```http://localhost:8000/professor/2```
+#### PUT - ```https://dgeneretord.herokuapp.com/professor/2```
 ```json
 // BODY REQUEST
 {
@@ -336,7 +336,7 @@ http://localhost:8000/
 
 ### 4.5 - Deletar professor(a)
 
-#### DELETE - ```http://localhost:8000/professor/2```
+#### DELETE - ```https://dgeneretord.herokuapp.com/professor/2```
 
 ```json
 // RESPONSE STATUS -> HTTP 204 NO CONTENT
@@ -347,7 +347,7 @@ http://localhost:8000/
 
 ### 5.1 - Cadastrar turma
 
-#### POST - ```http://localhost:8000/turmas/```
+#### POST - ```https://dgeneretord.herokuapp.com/turmas/```
 ```json
 // BODY REQUEST
 {
@@ -370,7 +370,7 @@ http://localhost:8000/
 
 ### 5.2 - adicionar materias na turma
 
-#### PUT - ```http://localhost:8000/turma/1/materias/```
+#### PUT - ```https://dgeneretord.herokuapp.com/turma/1/materias/```
 
 ```json
 // BODY REQUEST
@@ -420,7 +420,7 @@ http://localhost:8000/
 
 ### 5.3 - Listar turmas
 
-#### GET - ```http://localhost:8000/turmas/```
+#### GET - ```https://dgeneretord.herokuapp.com/turmas/```
 
 
 ```json
@@ -477,7 +477,7 @@ http://localhost:8000/
 
 ### 5.4 - Listar turma especifica por ID
 
-#### GET - ```http://localhost:8000/turma/1```
+#### GET - ```https://dgeneretord.herokuapp.com/turma/1```
 
 
 ```json
@@ -518,7 +518,7 @@ http://localhost:8000/
 
 ### 5.5 - Editar nome da turma
 
-#### PUT - ```http://localhost:8000/turma/2```
+#### PUT - ```https://dgeneretord.herokuapp.com/turma/2```
 ```json
 // BODY REQUEST
 {
@@ -541,7 +541,7 @@ http://localhost:8000/
 ### 5.6 - Deletar turma
 
 
-#### DELETE - ```http://localhost:8000/turma/2```
+#### DELETE - ```https://dgeneretord.herokuapp.com/turma/2```
 
 ```json
 // RESPONSE STATUS -> HTTP 204 NO CONTENT
