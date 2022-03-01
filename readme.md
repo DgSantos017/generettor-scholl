@@ -343,7 +343,212 @@ http://localhost:8000/
 
 ```
 
-  
+## 5 - TURMAS
+
+### 5.1 - Cadastrar turma
+
+#### POST - ```http://localhost:8000/turmas/```
+```json
+// BODY REQUEST
+{
+   "name_turma": "Labenu",
+   "turno": "Vespertino"
+}
+    
+```
+
+```json
+// RESPONSE STATUS -> HTTP 201 CREATED
+{
+   "id": 1,
+   "name_turma": "Labenu",
+   "turno": "Vespertino",
+   "materias": []
+}
+```
+
+
+### 5.2 - adicionar materias na turma
+
+#### PUT - ```http://localhost:8000/turma/1/materias/```
+
+```json
+// BODY REQUEST
+{
+   "id_materias": [1, 2, 3]
+}
+    
+```
+
+```json
+// RESPONSE STATUS -> HTTP 200 OK
+{
+   "id": 1,
+   "name_turma": "Labenu",
+   "turno": "Vespertino",
+   "materias": [
+	   {
+	     "id": 1,
+	     "name_materia": "Programacao",
+		 "qtd_aulas": 8,
+		 "professores": [
+			{
+			  "id": 1,
+			  "name_professor": "Drica"
+			},
+			{
+		      "id": 2,
+			  "name_professor": "Diogo"
+			}
+		]
+	   },
+	   {
+	     "id": 2,
+	     "name_materia": "Fisica",
+		 "qtd_aulas": 0,
+		 "professores": []
+	   },
+	   {
+	     "id": 3,
+	     "name_materia": "Astronomia",
+		 "qtd_aulas": 0,
+		 "professores": []
+	   }
+   ]
+}
+```
+
+### 3.3 - Selecionar quantidade de aulas por matéria
+
+#### PUT - ```http://localhost:8000/materia/1/aulas/```
+
+```json
+// BODY REQUEST
+{
+   "qtd_aulas": 8
+}
+    
+```
+
+```json
+// RESPONSE STATUS -> HTTP 200 OK
+{
+   "id": 1,
+   "name_materia": "Programacao",
+   "qtd_aulas": 8,
+   "professores": [
+	   {
+	     "id": 1,
+	     "name_professor": "Drica"
+	   },
+	   {
+	     "id": 2,
+	     "name_professor": "Diogo"
+	   }
+   ] 
+}
+```
+
+### 3.4 - Listar materias
+
+#### GET - ```http://localhost:8000/materias/```
+
+```json
+// RESPONSE STATUS -> HTTP 200 OK
+[
+  {
+    "id": 1,
+    "name_materia": "Programacao",
+    "qtd_aulas": 8,
+    "professores": [
+      {
+       "id": 1,
+       "name_professor": "Drica"
+      },
+      {
+       "id": 2,
+       "name_professor": "Diogo"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name_materia": "Fisica",
+    "qtd_aulas": 0,
+    "professores": []
+  },
+  {
+    "id": 3,
+    "name_materia": "Astronomia",
+    "qtd_aulas": 0,
+    "professores": []
+  }
+]
+```
+
+### 3.5 - Listar materia especifica por ID
+
+#### GET - ```http://localhost:8000/materia/1```
+
+```json
+// RESPONSE STATUS -> HTTP 200 OK
+
+{
+    "id": 1,
+    "name_materia": "Programacao",
+    "qtd_aulas": 8,
+    "professores": [
+      {
+       "id": 1,
+       "name_professor": "Drica"
+      },
+      {
+       "id": 2,
+       "name_professor": "Diogo"
+      }
+    ]
+  }
+```
+
+### 3.6 - Editar nome da materia
+
+#### PUT - ```http://localhost:8000/materia/1```
+```json
+// BODY REQUEST
+{
+  "name_materia": "Desenvolvimento backEnd"
+}
+    
+```
+
+```json
+// RESPONSE STATUS -> HTTP 200 OK
+
+{
+    "id": 1,
+    "name_materia": "Desenvolvimento backEnd",
+    "qtd_aulas": 8,
+    "professores": [
+      {
+       "id": 1,
+       "name_professor": "Drica"
+      },
+      {
+       "id": 2,
+       "name_professor": "Diogo"
+      }
+    ]
+  }
+```
+
+### 3.7 - Deletar materia
+
+#### DELETE - ```http://localhost:8000/materia/2```
+
+```json
+// RESPONSE STATUS -> HTTP 204 NO CONTENT
+
+```
 
 ## 6 - EXCEÇÕES
 
