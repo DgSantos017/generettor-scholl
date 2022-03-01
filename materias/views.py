@@ -17,23 +17,16 @@ class RegistrationMateria(APIView):
     def put(self, request, materia_id):
         try:
             materia = RegisterMaterias.objects.get(id=materia_id)
-            id_professores = request.data['id_professores']
+            id_professor = request.data['id_professor']
+            professor = CadastrarProfessores.objects.get(id=id_professor)
             
-            if type(id_professores) == list:
+            materia.professor.add(professor)
+            
+            materia.save()
+            serializer = MateriasSerializer(materia)
 
-                materia.professores.set([])
-
-                for id in id_professores:
-                    professor = CadastrarProfessores.objects.get(id=id)
-                    materia.professores.add(professor)
-                
-                materia.save()
-                serializer = RegisterMaterias(materia)
-
-                return Response(serializer.data)
-            else:
-                return Response({'error': 'you need to enter a list of professores'}, 400)
-
+            return Response(serializer.data)
+    
         except CadastrarProfessores.DoesNotExist:
             return Response({'errors': 'invalid id_professor'}, status=404)
 

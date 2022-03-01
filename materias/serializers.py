@@ -5,4 +5,4 @@ class MateriasSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     name_materia = serializers.CharField()
     qtd_aulas = serializers.IntegerField()
-    professores = ProfessorSerializer(many=True)
+    professor = ProfessorSerializer(many=True)

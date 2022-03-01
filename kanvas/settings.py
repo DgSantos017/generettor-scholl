@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-i(siw_d_v*!0c8oe8v%mbu63-#j-av7ysm6jmvh@zo@58r7sjt'
 DEBUG = True
 
-ALLOWED_HOSTS = ['dkanvas.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['dgeneretord.herokuapp.com', 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
