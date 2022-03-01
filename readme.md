@@ -168,33 +168,33 @@ http://localhost:8000/
 ```json
 // RESPONSE STATUS -> HTTP 200 OK
 [
-   {
-	   "id": 1,
-	   "name_materia": "Programacao",
-	   "qtd_aulas": 8,
-	   "professores": [
-	       {
-		      "id": 1,
-		      "name_professor": "Drica"
-	       },
-	       {
-		   "id": 2,
-		   "name_professor": "Diogo"
-	      }
-        ]
-    },
-    {
-	   "id": 2,
-	   "name_materia": "Fisica",
-	   "qtd_aulas": 0,
-	   "professores": []
-    },
-    {
-	   "id": 3,
-	   "name_materia": "Astronomia",
-	   "qtd_aulas": 0,
-	   "professores": []
-    }
+  {
+    "id": 1,
+    "name_materia": "Programacao",
+    "qtd_aulas": 8,
+    "professores": [
+      {
+	    "id": 1,
+	    "name_professor": "Drica"
+      },
+      {
+        "id": 2,
+        "name_professor": "Diogo"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name_materia": "Fisica",
+    "qtd_aulas": 0,
+    "professores": []
+  },
+  {
+    "id": 3,
+    "name_materia": "Astronomia",
+    "qtd_aulas": 0,
+    "professores": []
+  }
 ]
 ```
 
