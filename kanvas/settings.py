@@ -21,7 +21,8 @@ INSTALLED_APPS = [
     'accounts',
     'professores',
     'materias',
-    'turmas'
+    'turmas',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -32,7 +33,69 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
+
+CORS_ALLOWED_ORIGINS  =  [ 
+    "https://dgeneretord.herokuapp.com/", 
+    "http://localhost:8000/", 
+    "http://localhost:3000/" 
+]
+
+CORS_ALLOWED_ORIGIN_REGEXES  =  [ 
+    r "^https://\w+\.com$" , 
+]
+
+CORS_ALLOW_ALL_ORIGINS: True
+
+CORS_URLS_REGEX  =  r "^/.*$"
+
+CORS_ALLOW_METHODS  =  [ 
+    "DELETE" , 
+    "GET" , 
+    "OPÇÕES" , 
+    "PATCH" , 
+    "POST" , 
+    "PUT" 
+]
+
+CORS_ALLOW_HEADERS  =  [ 
+    "accept" , 
+    "accept-encoding" , 
+    "autorização" , 
+    "content-type" , 
+    "dnt" , 
+    "origin" , 
+    "user-agent" , 
+    "x-csrftoken" , 
+    "x-requested-with" , 
+]
+
+
+CORS_ALLOWED_ORIGINS  =  [ 
+    "https://dgeneretord.herokuapp.com/", 
+    "http://localhost:8000/", 
+    "http://localhost:3000/"  
+] 
+
+CSRF_TRUSTED_ORIGINS  =  [ 
+    "https://dgeneretord.herokuapp.com/", 
+    "http://localhost:8000/", 
+    "http://localhost:3000/"  
+]
+
+MIDDLEWARE_CLASSES  =  [ 
+    ... , 
+    "corsheaders.middleware.CorsMiddleware" , 
+    ... , 
+    "django.middleware.csrf.CsrfViewMiddleware" , 
+    "corsheaders.middleware.CorsPostCsrfMiddleware" , 
+    ... , 
+]
+
+CORS_REPLACE_HTTPS_REFERER: True
+
+CORS_ALLOW_CREDENCIALS: True
 
 ROOT_URLCONF = 'kanvas.urls'
 
