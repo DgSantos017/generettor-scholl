@@ -36,7 +36,7 @@ http://localhost:8000/
 
 ### 2.1 - Cadastrar
 
-#### POST - ```http://localhost:8000/api/accounts/```
+#### POST - ```http://localhost:8000/register/```
 ```json
 // BODY REQUEST
 {
@@ -47,7 +47,7 @@ http://localhost:8000/
 ```
 
 ```json
-// RESPONSE STATUS -> HTTP 201
+// RESPONSE STATUS -> HTTP 201 CREATED
 {
 	"id": 1,
 	"username": "Drica",
@@ -58,7 +58,7 @@ http://localhost:8000/
 
 ### 2.2 - Login
 
-#### POST - ```http://localhost:8000/api/login/```
+#### POST - ```http://localhost:8000/login/```
 ```json
 // BODY REQUEST
 {
@@ -69,7 +69,7 @@ http://localhost:8000/
 ```
 
 ```json
-// RESPONSE STATUS -> HTTP 200
+// RESPONSE STATUS -> HTTP 200 OK
 {
     "token": "dfd384673e9127213de6116ca33257ce4aa203cf"
 }
@@ -77,9 +77,9 @@ http://localhost:8000/
 
 ## 3 - MATERIAS
 
-### 3.1 - Cadastrar
+### 3.1 - Cadastrar materias
 
-#### POST - ```http://localhost:8000/api/materias/```
+#### POST - ```http://localhost:8000/materias/```
 ```json
 // BODY REQUEST
 {
@@ -89,38 +89,180 @@ http://localhost:8000/
 ```
 
 ```json
-// RESPONSE STATUS -> HTTP 201
+// RESPONSE STATUS -> HTTP 201 CREATED
 {
 	"id": 1,
 	"name_materia": "Programacao",
-	"qtd_aulas": 0
+	"qtd_aulas": 0,
+	"professores": []
 }
 ```
 
-### 3.2 - Listar materias
-#### GET - ```http://localhost:8000/api/materias/```
+
+### 3.2 - adicionar professores para lecionar as materias
+
+#### PUT - ```http://localhost:8000/materia/1/professores/```
 
 ```json
-// RESPONSE STATUS -> HTTP 200
+// BODY REQUEST
+{
+	"id_professores": [1, 2]
+}
+    
+```
+
+```json
+// RESPONSE STATUS -> HTTP 200 OK
+{
+	"id": 1,
+	"name_materia": "Programacao",
+	"qtd_aulas": 0,
+	"professores": [
+		{
+			"id": 1,
+			"name_professor": "Drica"
+		},
+		{
+			"id": 2,
+			"name_professor": "Diogo"
+		}
+	]
+}
+```
+
+### 3.3 - Selecionar quantidade de aulas por matéria
+
+#### PUT - ```http://localhost:8000/materia/1/aulas/```
+
+```json
+// BODY REQUEST
+{
+	"qtd_aulas": 8
+}
+    
+```
+
+```json
+// RESPONSE STATUS -> HTTP 200 OK
+{
+	"id": 1,
+	"name_materia": "Programacao",
+	"qtd_aulas": 8,
+	"professores": [
+		{
+			"id": 1,
+			"name_professor": "Drica"
+		},
+		{
+			"id": 2,
+			"name_professor": "Diogo"
+		}
+	]
+}
+```
+
+### 3.4 - Listar materias
+
+#### GET - ```http://localhost:8000/materias/```
+
+```json
+// RESPONSE STATUS -> HTTP 200 OK
 [
 	{
 		"id": 1,
-		"name_materia": "Fisica",
-		"qtd_aulas": 0
+		"name_materia": "Programacao",
+		"qtd_aulas": 8,
+		"professores": [
+		{
+			"id": 1,
+			"name_professor": "Drica"
+		},
+		{
+			"id": 2,
+			"name_professor": "Diogo"
+		}
+	]
 	},
 	{
 		"id": 2,
-		"name_materia": "Quimica",
-		"qtd_aulas": 0
+		"name_materia": "Fisica",
+		"qtd_aulas": 0,
+		"professores": []
 	},
 	{
 		"id": 3,
-		"name_materia": "Programacao",
-		"qtd_aulas": 0
+		"name_materia": "Astronomia",
+		"qtd_aulas": 0,
+		"professores": []
 	}
 ]
 ```
 
+### 3.5 - Listar materia especifica por ID
+
+#### GET - ```http://localhost:8000/materia/1```
+
+```json
+// RESPONSE STATUS -> HTTP 200 OK
+
+	{
+		"id": 1,
+		"name_materia": "Programacao",
+		"qtd_aulas": 8,
+		"professores": [
+			{
+				"id": 1,
+				"name_professor": "Drica"
+			},
+			{
+				"id": 2,
+				"name_professor": "Diogo"
+			}
+		]
+	}
+
+```
+
+### 3.6 - Editar nome da materia
+
+#### PUT - ```http://localhost:8000/materia/1```
+```json
+// BODY REQUEST
+{
+	"name_materia": "Desenvolvimento backEnd"
+}
+    
+```
+
+```json
+// RESPONSE STATUS -> HTTP 200 OK
+
+	{
+		"id": 1,
+		"name_materia": "Desenvolvimento backEnd",
+		"qtd_aulas": 8,
+		"professores": [
+			{
+				"id": 1,
+				"name_professor": "Drica"
+			},
+			{
+				"id": 2,
+				"name_professor": "Diogo"
+			}
+		]
+	}
+
+```
+
+### 3.7 - Deletar materia
+
+#### DELETE - ```http://localhost:8000/materia/2```
+
+```json
+// RESPONSE STATUS -> HTTP 204 NO CONTENT
+
+```
 
   
 
