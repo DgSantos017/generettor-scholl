@@ -119,12 +119,12 @@ http://localhost:8000/
    "qtd_aulas": 0,
    "professores": [
 	   {
-	      "id": 1,
-	      "name_professor": "Drica"
+	     "id": 1,
+	     "name_professor": "Drica"
 	   },
 	   {
-	      "id": 2,
-		  "name_professor": "Diogo"
+	     "id": 2,
+	     "name_professor": "Diogo"
 	   }
    ]
 }
