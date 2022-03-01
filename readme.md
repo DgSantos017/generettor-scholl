@@ -182,7 +182,7 @@ http://localhost:8000/
   "id": 1,
   "name_materia": "Programacao",
   "qtd_aulas": 8,
-  "professores": "Drica"
+  "professor": "Drica"
 }
 ```
 
