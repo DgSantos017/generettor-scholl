@@ -40,9 +40,9 @@ http://localhost:8000/
 ```json
 // BODY REQUEST
 {
-    "username": "Drica",
-    "password": "1234",
-  	"email": "d@gmail.com"
+   "username": "Drica",
+   "password": "1234",
+   "email": "d@gmail.com"
 }  
 ```
 
@@ -83,7 +83,7 @@ http://localhost:8000/
 ```json
 // BODY REQUEST
 {
-	"name_materia": "Programacao"
+   "name_materia": "Programacao"
 }
     
 ```
