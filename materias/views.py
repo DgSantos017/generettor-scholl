@@ -40,6 +40,27 @@ class RegistrationMateria(APIView):
         except RegisterMaterias.DoesNotExist:
             return Response({"error": "invalid professor_id list"}, status=404)
 
+class QtdAulas(APIView):
+    def put(self, request, materia_id):
+        try:
+            materia = RegisterMaterias.objects.get(id=materia_id)
+            qtd_aulas = request.data['qtd_aulas']
+            materia.qtd_aulas = qtd_aulas
+            materia.save()
+            serializer = MateriasSerializer(materia)
+
+            return Response(serializer.data, status=200)
+            
+        except KeyError as e:
+            return Response({"error": f"{str(e)} is missing"}, status=400)
+
+        except RegisterMaterias.DoesNotExist:
+            return Response({'errors': 'invalid materia_id'}, status=404)
+
+        except IntegrityError:
+            return Response({"error": "Materia with this name already exists"}, status=400)
+
+
 class Materias(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [Instructor]
