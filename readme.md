@@ -62,8 +62,8 @@ http://localhost:8000/
 ```json
 // BODY REQUEST
 {
-    "username": "Drica",
-    "password": "1234"
+   "username": "Drica",
+   "password": "1234"
 }
     
 ```
@@ -71,7 +71,7 @@ http://localhost:8000/
 ```json
 // RESPONSE STATUS -> HTTP 200 OK
 {
-    "token": "dfd384673e9127213de6116ca33257ce4aa203cf"
+   "token": "dfd384673e9127213de6116ca33257ce4aa203cf"
 }
 ```
 
@@ -91,10 +91,10 @@ http://localhost:8000/
 ```json
 // RESPONSE STATUS -> HTTP 201 CREATED
 {
-	"id": 1,
-	"name_materia": "Programacao",
-	"qtd_aulas": 0,
-	"professores": []
+   "id": 1,
+   "name_materia": "Programacao",
+   "qtd_aulas": 0,
+   "professores": []
 }
 ```
 
@@ -106,7 +106,7 @@ http://localhost:8000/
 ```json
 // BODY REQUEST
 {
-	"id_professores": [1, 2]
+   "id_professores": [1, 2]
 }
     
 ```
@@ -114,19 +114,19 @@ http://localhost:8000/
 ```json
 // RESPONSE STATUS -> HTTP 200 OK
 {
-	"id": 1,
-	"name_materia": "Programacao",
-	"qtd_aulas": 0,
-	"professores": [
-		{
-			"id": 1,
-			"name_professor": "Drica"
-		},
-		{
-			"id": 2,
-			"name_professor": "Diogo"
-		}
-	]
+   "id": 1,
+   "name_materia": "Programacao",
+   "qtd_aulas": 0,
+   "professores": [
+	   {
+		   "id": 1,
+		   "name_professor": "Drica"
+	   },
+	   {
+		   "id": 2,
+		   "name_professor": "Diogo"
+	   }
+   ]
 }
 ```
 
@@ -137,7 +137,7 @@ http://localhost:8000/
 ```json
 // BODY REQUEST
 {
-	"qtd_aulas": 8
+   "qtd_aulas": 8
 }
     
 ```
@@ -145,19 +145,19 @@ http://localhost:8000/
 ```json
 // RESPONSE STATUS -> HTTP 200 OK
 {
-	"id": 1,
-	"name_materia": "Programacao",
-	"qtd_aulas": 8,
-	"professores": [
-		{
-			"id": 1,
-			"name_professor": "Drica"
-		},
-		{
-			"id": 2,
-			"name_professor": "Diogo"
-		}
-	]
+   "id": 1,
+   "name_materia": "Programacao",
+   "qtd_aulas": 8,
+   "professores": [
+	   {
+		   "id": 1,
+		   "name_professor": "Drica"
+	   },
+	   {
+		   "id": 2,
+		   "name_professor": "Diogo"
+	   }
+   ] 
 }
 ```
 
@@ -168,33 +168,33 @@ http://localhost:8000/
 ```json
 // RESPONSE STATUS -> HTTP 200 OK
 [
-	{
-		"id": 1,
-		"name_materia": "Programacao",
-		"qtd_aulas": 8,
-		"professores": [
-		{
-			"id": 1,
-			"name_professor": "Drica"
-		},
-		{
-			"id": 2,
-			"name_professor": "Diogo"
-		}
-	]
-	},
-	{
-		"id": 2,
-		"name_materia": "Fisica",
-		"qtd_aulas": 0,
-		"professores": []
-	},
-	{
-		"id": 3,
-		"name_materia": "Astronomia",
-		"qtd_aulas": 0,
-		"professores": []
-	}
+   {
+	   "id": 1,
+	   "name_materia": "Programacao",
+	   "qtd_aulas": 8,
+	   "professores": [
+	       {
+		      "id": 1,
+		      "name_professor": "Drica"
+	       },
+	       {
+		   "id": 2,
+		   "name_professor": "Diogo"
+	      }
+        ]
+    },
+    {
+	   "id": 2,
+	   "name_materia": "Fisica",
+	   "qtd_aulas": 0,
+	   "professores": []
+    },
+    {
+	   "id": 3,
+	   "name_materia": "Astronomia",
+	   "qtd_aulas": 0,
+	   "professores": []
+    }
 ]
 ```
 
