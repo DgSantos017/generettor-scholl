@@ -264,7 +264,7 @@ http://localhost:8000/
 
 ## 4 - PROFESSORES
 
-### 4.1 - Cadastrar professores
+### 4.1 - Cadastrar professor(a)
 
 #### POST - ```http://localhost:8000/professores/```
 ```json
@@ -314,7 +314,7 @@ http://localhost:8000/
 }
 ```
 
-### 3.6 - Editar nome do professor(a)
+### 4.4 - Editar nome do professor(a)
 
 #### PUT - ```http://localhost:8000/professor/2```
 ```json
@@ -334,7 +334,7 @@ http://localhost:8000/
 }
 ```
 
-### 3.7 - Deletar professor
+### 4.5 - Deletar professor(a)
 
 #### DELETE - ```http://localhost:8000/professor/2```
 
