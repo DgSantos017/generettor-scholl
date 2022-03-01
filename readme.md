@@ -392,14 +392,14 @@ http://localhost:8000/
 	     "name_materia": "Programacao",
 		 "qtd_aulas": 8,
 		 "professores": [
-			{
-			  "id": 1,
-			  "name_professor": "Drica"
-			},
-			{
-		      "id": 2,
-			  "name_professor": "Diogo"
-			}
+		   {
+			"id": 1,
+			"name_professor": "Drica"
+		   },
+		   {
+			"id": 2,
+			"name_professor": "Diogo"
+		   }
 		]
 	   },
 	   {
@@ -418,35 +418,61 @@ http://localhost:8000/
 }
 ```
 
-### 3.3 - Selecionar quantidade de aulas por matéria
+### 5.3 - Listar turmas
 
 #### PUT - ```http://localhost:8000/materia/1/aulas/```
 
-```json
-// BODY REQUEST
-{
-   "qtd_aulas": 8
-}
-    
-```
 
 ```json
 // RESPONSE STATUS -> HTTP 200 OK
-{
+[
+  {
    "id": 1,
-   "name_materia": "Programacao",
-   "qtd_aulas": 8,
-   "professores": [
+   "name_turma": "Labenu",
+   "turno": "Vespertino",
+   "materias": [
 	   {
 	     "id": 1,
-	     "name_professor": "Drica"
+	     "name_materia": "Programacao",
+		 "qtd_aulas": 8,
+		 "professores": [
+		   {
+			"id": 1,
+			"name_professor": "Drica"
+		   },
+		   {
+			"id": 2,
+			"name_professor": "Diogo"
+		   }
+		]
 	   },
 	   {
 	     "id": 2,
-	     "name_professor": "Diogo"
+	     "name_materia": "Fisica",
+		 "qtd_aulas": 0,
+		 "professores": []
+	   },
+	   {
+	     "id": 3,
+	     "name_materia": "Astronomia",
+		 "qtd_aulas": 0,
+		 "professores": []
 	   }
-   ] 
-}
+   ]
+  },
+  {
+   "id": 2,
+   "name_turma": "Kenzie",
+   "turno": "Matutino",
+   "materias": []
+  },
+  {
+   "id": 3,
+   "name_turma": "Trybe",
+   "turno": "Noturno",
+   "materias": []
+  }
+]
 ```
 
 ### 3.4 - Listar materias
