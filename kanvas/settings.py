@@ -42,13 +42,7 @@ CORS_ALLOWED_ORIGINS  =  [
     "http://localhost:3000/" 
 ]
 
-CORS_ALLOWED_ORIGIN_REGEXES  =  [ 
-    r "^https://\w+\.com$" , 
-]
-
 CORS_ALLOW_ALL_ORIGINS: True
-
-CORS_URLS_REGEX  =  r "^/.*$"
 
 CORS_ALLOW_METHODS  =  [ 
     "DELETE" , 
