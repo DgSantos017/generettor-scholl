@@ -94,7 +94,7 @@ http://localhost:8000/
    "id": 1,
    "name_materia": "Programacao",
    "qtd_aulas": 0,
-   "professores": []
+   "professor": ""
 }
 ```
 
@@ -106,7 +106,7 @@ http://localhost:8000/
 ```json
 // BODY REQUEST
 {
-   "id_professor": [1, 2]
+   "id_professor": 1
 }
     
 ```
@@ -117,16 +117,7 @@ http://localhost:8000/
    "id": 1,
    "name_materia": "Programacao",
    "qtd_aulas": 0,
-   "professores": [
-	   {
-	     "id": 1,
-	     "name_professor": "Drica"
-	   },
-	   {
-	     "id": 2,
-	     "name_professor": "Diogo"
-	   }
-   ]
+   "professor": "Drica"
 }
 ```
 
@@ -148,16 +139,7 @@ http://localhost:8000/
    "id": 1,
    "name_materia": "Programacao",
    "qtd_aulas": 8,
-   "professores": [
-	   {
-	     "id": 1,
-	     "name_professor": "Drica"
-	   },
-	   {
-	     "id": 2,
-	     "name_professor": "Diogo"
-	   }
-   ] 
+   "professor": "Drica"
 }
 ```
 
@@ -172,28 +154,19 @@ http://localhost:8000/
     "id": 1,
     "name_materia": "Programacao",
     "qtd_aulas": 8,
-    "professores": [
-      {
-       "id": 1,
-       "name_professor": "Drica"
-      },
-      {
-       "id": 2,
-       "name_professor": "Diogo"
-      }
-    ]
+    "professor": "Drica"
   },
   {
     "id": 2,
     "name_materia": "Fisica",
     "qtd_aulas": 0,
-    "professores": []
+    "professor": ""
   },
   {
     "id": 3,
     "name_materia": "Astronomia",
     "qtd_aulas": 0,
-    "professores": []
+    "professor": ""
   }
 ]
 ```
@@ -206,20 +179,11 @@ http://localhost:8000/
 // RESPONSE STATUS -> HTTP 200 OK
 
 {
-    "id": 1,
-    "name_materia": "Programacao",
-    "qtd_aulas": 8,
-    "professores": [
-      {
-       "id": 1,
-       "name_professor": "Drica"
-      },
-      {
-       "id": 2,
-       "name_professor": "Diogo"
-      }
-    ]
-  }
+  "id": 1,
+  "name_materia": "Programacao",
+  "qtd_aulas": 8,
+  "professores": "Drica"
+}
 ```
 
 ### 3.6 - Editar nome da materia
@@ -240,16 +204,7 @@ http://localhost:8000/
     "id": 1,
     "name_materia": "Desenvolvimento backEnd",
     "qtd_aulas": 8,
-    "professores": [
-      {
-       "id": 1,
-       "name_professor": "Drica"
-      },
-      {
-       "id": 2,
-       "name_professor": "Diogo"
-      }
-    ]
+    "professor": "Drica"
   }
 ```
 
@@ -388,31 +343,22 @@ http://localhost:8000/
    "turno": "Vespertino",
    "materias": [
 	   {
-	     "id": 1,
-	     "name_materia": "Programacao",
-		 "qtd_aulas": 8,
-		 "professores": [
-		   {
-			"id": 1,
-			"name_professor": "Drica"
-		   },
-		   {
-			"id": 2,
-			"name_professor": "Diogo"
-		   }
-		]
+	      "id": 1,
+	      "name_materia": "Programacao",
+        "qtd_aulas": 8,
+        "professor": "Drica"
 	   },
 	   {
 	     "id": 2,
 	     "name_materia": "Fisica",
-		 "qtd_aulas": 0,
-		 "professores": []
+		   "qtd_aulas": 0,
+		 "  professor": ""
 	   },
 	   {
 	     "id": 3,
 	     "name_materia": "Astronomia",
-		 "qtd_aulas": 0,
-		 "professores": []
+		   "qtd_aulas": 0,
+		   "professor": ""
 	   }
    ]
 }
@@ -434,29 +380,20 @@ http://localhost:8000/
 	   {
 	     "id": 1,
 	     "name_materia": "Programacao",
-		 "qtd_aulas": 8,
-		 "professores": [
-		   {
-			"id": 1,
-			"name_professor": "Drica"
-		   },
-		   {
-			"id": 2,
-			"name_professor": "Diogo"
-		   }
-		]
+		   "qtd_aulas": 8,
+		   "professor": "Drica"
 	   },
 	   {
 	     "id": 2,
 	     "name_materia": "Fisica",
-		 "qtd_aulas": 0,
-		 "professores": []
+		   "qtd_aulas": 0,
+		   "professor": ""
 	   },
 	   {
 	     "id": 3,
 	     "name_materia": "Astronomia",
-		 "qtd_aulas": 0,
-		 "professores": []
+		   "qtd_aulas": 0,
+		   "professor": ""
 	   }
    ]
   },
@@ -490,29 +427,20 @@ http://localhost:8000/
 	   {
 	     "id": 1,
 	     "name_materia": "Programacao",
-		 "qtd_aulas": 8,
-		 "professores": [
-		   {
-			"id": 1,
-			"name_professor": "Drica"
-		   },
-		   {
-			"id": 2,
-			"name_professor": "Diogo"
-		   }
-		]
+		   "qtd_aulas": 8,
+		   "professor": "Drica"
 	   },
 	   {
 	     "id": 2,
 	     "name_materia": "Fisica",
-		 "qtd_aulas": 0,
-		 "professores": []
+		   "qtd_aulas": 0,
+		   "professor": ""
 	   },
 	   {
 	     "id": 3,
 	     "name_materia": "Astronomia",
-		 "qtd_aulas": 0,
-		 "professores": []
+		   "qtd_aulas": 0,
+		   "professor": ""
 	   }
 ```
 
