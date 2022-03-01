@@ -49,10 +49,10 @@ http://localhost:8000/
 ```json
 // RESPONSE STATUS -> HTTP 201 CREATED
 {
-	"id": 1,
-	"username": "Drica",
-	"email": "d@gmail.com",
-	"is_superuser": true
+   "id": 1,
+   "username": "Drica",
+   "email": "d@gmail.com",
+   "is_superuser": true
 }
 ```
 
