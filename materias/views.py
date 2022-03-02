@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from accounts.permissions import Instructor
 from .models import RegisterMaterias
-from professores.models import CadastrarProfessores
 from .serializers import MateriasSerializer
 from django.db.utils import IntegrityError
 
@@ -18,8 +17,13 @@ class ComplementMateria(APIView):
     def put(self, request, materia_id):
         try:
             materia = RegisterMaterias.objects.get(id=materia_id)
+
             qtd_aulas = request.data['qtd_aulas']
+            professor = request.data['professor']
+
             materia.qtd_aulas = qtd_aulas
+            materia.professor = professor
+
             materia.save()
             serializer = MateriasSerializer(materia)
 
@@ -43,7 +47,7 @@ class Materias(APIView):
         try:
             name_materia = request.data['name_materia']
     
-            materia = RegisterMaterias.objects.create(name_materia=name_materia, qtd_aulas = 0)
+            materia = RegisterMaterias.objects.create(name_materia=name_materia, qtd_aulas = 0, professor = "")
             serializer = MateriasSerializer(materia)
             return Response(serializer.data, status=201)
 
@@ -55,7 +59,6 @@ class Materias(APIView):
     
 
     def get(self, request):
-        user = request.user
         
         materias = RegisterMaterias.objects.all()
         if materias:
