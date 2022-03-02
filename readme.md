@@ -98,37 +98,15 @@ http://localhost:8000/
 }
 ```
 
+### 3.2 - Complementar as informações da Materia
 
-### 3.2 - adicionar professores para lecionar as materias
-
-#### PUT - ```https://dgeneretord.herokuapp.com/materia/1/professor/```
+#### PUT - ```https://dgeneretord.herokuapp.com/materia/1/complement/```
 
 ```json
 // BODY REQUEST
 {
-   "id_professor": 1
-}
-    
-```
-
-```json
-// RESPONSE STATUS -> HTTP 200 OK
-{
-   "id": 1,
-   "name_materia": "Programacao",
-   "qtd_aulas": 0,
+   "qtd_aulas": 8,
    "professor": "Drica"
-}
-```
-
-### 3.3 - Selecionar quantidade de aulas por matéria
-
-#### PUT - ```https://dgeneretord.herokuapp.com/materia/1/aulas/```
-
-```json
-// BODY REQUEST
-{
-   "qtd_aulas": 8
 }
     
 ```
@@ -143,7 +121,7 @@ http://localhost:8000/
 }
 ```
 
-### 3.4 - Listar materias
+### 3.3 - Listar materias
 
 #### GET - ```https://dgeneretord.herokuapp.com/materias/```
 
@@ -171,7 +149,7 @@ http://localhost:8000/
 ]
 ```
 
-### 3.5 - Listar materia especifica por ID
+### 3.4 - Listar materia especifica por ID
 
 #### GET - ```https://dgeneretord.herokuapp.com/materia/1```
 
@@ -217,90 +195,9 @@ http://localhost:8000/
 
 ```
 
-## 4 - PROFESSORES
+## 4 - TURMAS
 
-### 4.1 - Cadastrar professor(a)
-
-#### POST - ```https://dgeneretord.herokuapp.com/professores/```
-```json
-// BODY REQUEST
-{
-   "name_professor": "Drica"
-}
-    
-```
-
-```json
-// RESPONSE STATUS -> HTTP 201 CREATED
-{
-   "id": 1,
-   "name_professor": "Drica",
-}
-```
-
-### 4.2 - Listar professores
-
-#### GET - ```https://dgeneretord.herokuapp.com/professores/```
-
-```json
-// RESPONSE STATUS -> HTTP 200 OK
-[
-  {
-    "id": 1,
-    "name_professor": "Drica"
-  },
-  {
-    "id": 2,
-    "name_professor": "Diogo"
-  }
-]
-```
-
-### 4.3 - Listar professor(a) especifico por ID
-
-#### GET - ```https://dgeneretord.herokuapp.com/professor/2```
-
-```json
-// RESPONSE STATUS -> HTTP 200 OK
-
-{
-  "id": 2,
-  "name_professor": "Diogo"
-}
-```
-
-### 4.4 - Editar nome do professor(a)
-
-#### PUT - ```https://dgeneretord.herokuapp.com/professor/2```
-```json
-// BODY REQUEST
-{
-  "name_professor": "Diguim santos"
-}
-    
-```
-
-```json
-// RESPONSE STATUS -> HTTP 200 OK
-
-{
-  "id": 2,
-  "name_professor": "Diguim santos"
-}
-```
-
-### 4.5 - Deletar professor(a)
-
-#### DELETE - ```https://dgeneretord.herokuapp.com/professor/2```
-
-```json
-// RESPONSE STATUS -> HTTP 204 NO CONTENT
-
-```
-
-## 5 - TURMAS
-
-### 5.1 - Cadastrar turma
+### 4.1 - Cadastrar turma
 
 #### POST - ```https://dgeneretord.herokuapp.com/turmas/```
 ```json
@@ -323,7 +220,7 @@ http://localhost:8000/
 ```
 
 
-### 5.2 - adicionar materias na turma
+### 4.2 - adicionar materias na turma
 
 #### PUT - ```https://dgeneretord.herokuapp.com/turma/1/materias/```
 
@@ -364,7 +261,7 @@ http://localhost:8000/
 }
 ```
 
-### 5.3 - Listar turmas
+### 4.3 - Listar turmas
 
 #### GET - ```https://dgeneretord.herokuapp.com/turmas/```
 
@@ -412,7 +309,7 @@ http://localhost:8000/
 ]
 ```
 
-### 5.4 - Listar turma especifica por ID
+### 4.4 - Listar turma especifica por ID
 
 #### GET - ```https://dgeneretord.herokuapp.com/turma/1```
 
@@ -444,7 +341,7 @@ http://localhost:8000/
 	   }
 ```
 
-### 5.5 - Editar nome da turma
+### 4.5 - Editar nome da turma
 
 #### PUT - ```https://dgeneretord.herokuapp.com/turma/2```
 ```json
@@ -466,7 +363,7 @@ http://localhost:8000/
   }
 ```
 
-### 5.6 - Deletar turma
+### 4.6 - Deletar turma
 
 
 #### DELETE - ```https://dgeneretord.herokuapp.com/turma/2```
@@ -476,16 +373,16 @@ http://localhost:8000/
 
 ```
 
-## 6 - EXCEÇÕES
+## 5 - EXCEÇÕES
 
-### 6.1 - Recursos especificos que pedem ID (Ex: foi solicitado um curso que não existe)
+### 5.1 - Recursos especificos que pedem ID (Ex: foi solicitado um curso que não existe)
 ```json
 // RESPONSE STATUS -> HTTP 404 Not Found
 {
    "error": "course does not exist"
 }
 ```
-### 6.2 - Cadastrar um recurso que já existe (Ex: tentativa de cadastrar usuário já cadastrado)
+### 5.2 - Cadastrar um recurso que já existe (Ex: tentativa de cadastrar usuário já cadastrado)
 ```json
 // RESPONSE STATUS -> HTTP 409 - Conflict
 {
@@ -493,16 +390,16 @@ http://localhost:8000/
 }
 ```
 
-### 6.3 - Autorização, baseado no tipo de usuário 
+### 5.3 - Autorização, baseado no tipo de usuário 
 
-#### 6.3.1 - Realizar login em uma conta ainda não criada
+#### 5.3.1 - Realizar login em uma conta ainda não criada
 ```json
 // RESPONSE STATUS -> HTTP 401 - Unauthorized
 {
     "error": "Incorrect login or password"
 }
 ```
-#### 6.3.2  - Token inexistente
+#### 5.3.2  - Token inexistente
 ```json
 // RESPONSE STATUS -> HTTP 401 - Unauthorized
 {
@@ -510,14 +407,14 @@ http://localhost:8000/
 }
 ```
 
-#### 6.3.3  - Token inválido
+#### 5.3.3  - Token inválido
 ```json
 // RESPONSE STATUS -> HTTP 401 - Unauthorized
 {
     "detail": "Invalid token."
 }
 ```
-#### 6.3.4 - Token válido, porém não atende os requisitos mínimos de permissão(ex: aluno tentando criar curso)
+#### 5.3.4 - Token válido, porém não atende os requisitos mínimos de permissão(ex: aluno tentando criar curso)
 ```json
 // RESPONSE STATUS -> HTTP 403
 {
@@ -525,7 +422,7 @@ http://localhost:8000/
 }
 ```
 
-### 6.4 - Formato de requisição incorreta (ex: ao tentar realizar o login, o usuário não informou o username)
+### 5.4 - Formato de requisição incorreta (ex: ao tentar realizar o login, o usuário não informou o username)
 ```json
 // RESPONSE STATUS -> HTTP 400 - Bad Request
 {
@@ -533,7 +430,7 @@ http://localhost:8000/
 }
 ```
 
-### 6.5 - a atividade que algum aluno tenha feito uma submissão não pode sofrer alteração no nome ou na pontuação
+### 5.5 - a atividade que algum aluno tenha feito uma submissão não pode sofrer alteração no nome ou na pontuação
 ```json
 // RESPONSE STATUS -> HTTP 400 Bad Request
 {

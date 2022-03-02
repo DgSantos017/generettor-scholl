@@ -10,35 +10,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-class RegistrationMateria(APIView):
+
+class ComplementMateria(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [Instructor]
 
-    def put(self, request, materia_id):
-        try:
-            materia = RegisterMaterias.objects.get(id=materia_id)
-            id_professor = request.data['id_professor']
-            professor = CadastrarProfessores.objects.get(id=id_professor)
-
-            materia.professor.set([])
-
-            materia.professor.add(professor)
-            
-            materia.save()
-            serializer = MateriasSerializer(materia)
-
-            return Response(serializer.data)
-    
-        except CadastrarProfessores.DoesNotExist:
-            return Response({'errors': 'invalid id_professor'}, status=404)
-
-        except RegisterMaterias.DoesNotExist:
-            return Response({"error": "invalid professor_id list"}, status=404)
-
-class QtdAulas(APIView):
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [Instructor]
-    
     def put(self, request, materia_id):
         try:
             materia = RegisterMaterias.objects.get(id=materia_id)
@@ -79,6 +55,8 @@ class Materias(APIView):
     
 
     def get(self, request):
+        user = request.user
+        
         materias = RegisterMaterias.objects.all()
         if materias:
             serializer = MateriasSerializer(materias, many=True) 
