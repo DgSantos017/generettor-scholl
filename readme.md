@@ -36,7 +36,7 @@ http://localhost:8000/
 
 ### 2.1 - Cadastrar
 
-#### POST - ```https://dgeneretord.herokuapp.com/register/```
+#### POST - ```https://dgeneratord.herokuapp.com/register/```
 ```json
 // BODY REQUEST
 {
@@ -58,7 +58,7 @@ http://localhost:8000/
 
 ### 2.2 - Login
 
-#### POST - ```https://dgeneretord.herokuapp.com/login/```
+#### POST - ```https://dgeneratord.herokuapp.com/login/```
 ```json
 // BODY REQUEST
 {
@@ -79,7 +79,7 @@ http://localhost:8000/
 
 ### 3.1 - Cadastrar materias
 
-#### POST - ```https://dgeneretord.herokuapp.com/materias/```
+#### POST - ```https://dgeneratord.herokuapp.com/materias/```
 ```json
 // BODY REQUEST
 {
@@ -100,7 +100,7 @@ http://localhost:8000/
 
 ### 3.2 - Complementar as informações da Materia
 
-#### PUT - ```https://dgeneretord.herokuapp.com/materia/1/complement/```
+#### PUT - ```https://dgeneratord.herokuapp.com/materia/1/complement/```
 
 ```json
 // BODY REQUEST
@@ -123,7 +123,7 @@ http://localhost:8000/
 
 ### 3.3 - Listar materias
 
-#### GET - ```https://dgeneretord.herokuapp.com/materias/```
+#### GET - ```https://dgeneratord.herokuapp.com/materias/```
 
 ```json
 // RESPONSE STATUS -> HTTP 200 OK
@@ -151,7 +151,7 @@ http://localhost:8000/
 
 ### 3.4 - Listar materia especifica por ID
 
-#### GET - ```https://dgeneretord.herokuapp.com/materia/1```
+#### GET - ```https://dgeneratord.herokuapp.com/materia/1```
 
 ```json
 // RESPONSE STATUS -> HTTP 200 OK
@@ -166,7 +166,7 @@ http://localhost:8000/
 
 ### 3.6 - Editar nome da materia
 
-#### PUT - ```https://dgeneretord.herokuapp.com/materia/1```
+#### PUT - ```https://dgeneratord.herokuapp.com/materia/1```
 ```json
 // BODY REQUEST
 {
@@ -188,7 +188,7 @@ http://localhost:8000/
 
 ### 3.7 - Deletar materia
 
-#### DELETE - ```https://dgeneretord.herokuapp.com/materia/2```
+#### DELETE - ```https://dgeneratord.herokuapp.com/materia/2```
 
 ```json
 // RESPONSE STATUS -> HTTP 204 NO CONTENT
@@ -199,7 +199,7 @@ http://localhost:8000/
 
 ### 4.1 - Cadastrar turma
 
-#### POST - ```https://dgeneretord.herokuapp.com/turmas/```
+#### POST - ```https://dgeneratord.herokuapp.com/turmas/```
 ```json
 // BODY REQUEST
 {
@@ -222,7 +222,7 @@ http://localhost:8000/
 
 ### 4.2 - adicionar materias na turma
 
-#### PUT - ```https://dgeneretord.herokuapp.com/turma/1/materias/```
+#### PUT - ```https://dgeneratord.herokuapp.com/turma/1/materias/```
 
 ```json
 // BODY REQUEST
@@ -263,7 +263,7 @@ http://localhost:8000/
 
 ### 4.3 - Listar turmas
 
-#### GET - ```https://dgeneretord.herokuapp.com/turmas/```
+#### GET - ```https://dgeneratord.herokuapp.com/turmas/```
 
 
 ```json
@@ -311,7 +311,7 @@ http://localhost:8000/
 
 ### 4.4 - Listar turma especifica por ID
 
-#### GET - ```https://dgeneretord.herokuapp.com/turma/1```
+#### GET - ```https://dgeneratord.herokuapp.com/turma/1```
 
 
 ```json
@@ -343,7 +343,7 @@ http://localhost:8000/
 
 ### 4.5 - Editar nome da turma
 
-#### PUT - ```https://dgeneretord.herokuapp.com/turma/2```
+#### PUT - ```https://dgeneratord.herokuapp.com/turma/2```
 ```json
 // BODY REQUEST
 {
@@ -366,7 +366,7 @@ http://localhost:8000/
 ### 4.6 - Deletar turma
 
 
-#### DELETE - ```https://dgeneretord.herokuapp.com/turma/2```
+#### DELETE - ```https://dgeneratord.herokuapp.com/turma/2```
 
 ```json
 // RESPONSE STATUS -> HTTP 204 NO CONTENT

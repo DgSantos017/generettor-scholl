@@ -96,5 +96,5 @@
 2022-03-01T21:56:29.364473+00:00 app[web.1]: [2022-03-01 21:56:29 +0000] [4] [INFO] Reason: Worker failed to boot.
 2022-03-01T21:56:29.613646+00:00 heroku[web.1]: Process exited with status 3
 2022-03-01T21:56:29.709199+00:00 heroku[web.1]: State changed from up to crashed
-2022-03-01T21:56:45.739046+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=dgeneretord.herokuapp.com request_id=5ecddd16-f59c-4c8c-9f5d-21e9e9a8ac3d fwd="170.247.30.239" dyno= connect= service= status=503 bytes= protocol=https
-2022-03-01T21:57:32.436529+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=dgeneretord.herokuapp.com request_id=49a5290b-bf8f-4b5a-b83d-6729f34a60b2 fwd="170.247.30.239" dyno= connect= service= status=503 bytes= protocol=https
+2022-03-01T21:56:45.739046+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=dgeneratord.herokuapp.com request_id=5ecddd16-f59c-4c8c-9f5d-21e9e9a8ac3d fwd="170.247.30.239" dyno= connect= service= status=503 bytes= protocol=https
+2022-03-01T21:57:32.436529+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=dgeneratord.herokuapp.com request_id=49a5290b-bf8f-4b5a-b83d-6729f34a60b2 fwd="170.247.30.239" dyno= connect= service= status=503 bytes= protocol=https

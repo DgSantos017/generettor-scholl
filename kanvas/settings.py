@@ -38,7 +38,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS  =  [ 
-    "https://dgeneretord.herokuapp.com/", 
+    "https://dgeneratord.herokuapp.com/", 
     "http://localhost:3000/" 
 ]
 
@@ -70,13 +70,13 @@ CORS_ALLOW_METHODS  =  list ( default_methods )  +  [
 ]
 
 CORS_ALLOWED_ORIGINS  =  [ 
-    "https://dgeneretord.herokuapp.com/", 
+    "https://dgeneratord.herokuapp.com/", 
     "http://localhost:8000/", 
     "http://localhost:3000/"  
 ] 
 
 CSRF_TRUSTED_ORIGINS  =  [ 
-    "https://dgeneretord.herokuapp.com", 
+    "https://dgeneratord.herokuapp.com", 
     "http://localhost:8000", 
     "http://localhost:3000"  
 ]
