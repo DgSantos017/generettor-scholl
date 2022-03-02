@@ -76,7 +76,7 @@ CORS_ALLOWED_ORIGINS  =  [
 ] 
 
 CSRF_TRUSTED_ORIGINS  =  [ 
-    "https://dgeneratord.herokuapp.com", 
+    "https://dgeneratord.herokuapp.com/", 
     "http://localhost:8000", 
     "http://localhost:3000"  
 ]
