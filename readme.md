@@ -94,12 +94,7 @@ http://localhost:8000/
    "id": 1,
    "name_materia": "Programacao",
    "qtd_aulas": 0,
-   "professor": [
-   	{
-   	   "id": 1,
-   	   "name_professor": "Drica",
-	}
-   ]
+   "professor": []
 }
 ```
 
