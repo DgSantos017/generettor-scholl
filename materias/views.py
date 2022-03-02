@@ -19,7 +19,9 @@ class RegistrationMateria(APIView):
             materia = RegisterMaterias.objects.get(id=materia_id)
             id_professor = request.data['id_professor']
             professor = CadastrarProfessores.objects.get(id=id_professor)
-            
+
+            materia.professor.set([])
+
             materia.professor.add(professor)
             
             materia.save()
