@@ -1,6 +1,6 @@
 from pathlib import Path
-from  corsheaders.defaults  import  default_methods 
-from  corsheaders.defaults  import  default_headers 
+from  corsheaders.defaults import default_methods 
+from  corsheaders.defaults import default_headers 
 import dj_database_url
 import os
 
