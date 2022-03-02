@@ -36,6 +36,9 @@ class RegistrationMateria(APIView):
             return Response({"error": "invalid professor_id list"}, status=404)
 
 class QtdAulas(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [Instructor]
+    
     def put(self, request, materia_id):
         try:
             materia = RegisterMaterias.objects.get(id=materia_id)
