@@ -243,24 +243,19 @@ http://localhost:8000/
 	      "id": 1,
 	      "name_materia": "Programacao",
               "qtd_aulas": 8,
-              "professor": [
-			{
-			   "id": 1,
-			   "name_professor": "Drica",
-			}
-		   ]
+              "professor": "Drica"
 	   },
 	   {
 	     "id": 2,
 	     "name_materia": "Fisica",
 		   "qtd_aulas": 0,
-		 "professor": []
+		 "professor": ""
 	   },
 	   {
 	     "id": 3,
 	     "name_materia": "Astronomia",
 		   "qtd_aulas": 0,
-		   "professor": []
+		   "professor": ""
 	   }
    ]
 }
@@ -283,24 +278,19 @@ http://localhost:8000/
 	     "id": 1,
 	     "name_materia": "Programacao",
 		   "qtd_aulas": 8,
-		   "professor": [
-			{
-			   "id": 1,
-			   "name_professor": "Drica",
-			}
-		   ]
+		   "professor": ""
 	   },
 	   {
 	     "id": 2,
 	     "name_materia": "Fisica",
 		   "qtd_aulas": 0,
-		   "professor": []
+		   "professor": ""
 	   },
 	   {
 	     "id": 3,
 	     "name_materia": "Astronomia",
 		   "qtd_aulas": 0,
-		   "professor": []
+		   "professor": ""
 	   }
    ]
   },
@@ -335,24 +325,19 @@ http://localhost:8000/
 	     "id": 1,
 	     "name_materia": "Programacao",
 		   "qtd_aulas": 8,
-		   "professor": [
-			{
-			   "id": 1,
-			   "name_professor": "Drica",
-			}
-		   ]
+		   "professor": "Drica"
 	   },
 	   {
 	     "id": 2,
 	     "name_materia": "Fisica",
 		   "qtd_aulas": 0,
-		   "professor": []
+		   "professor": ""
 	   },
 	   {
 	     "id": 3,
 	     "name_materia": "Astronomia",
 		   "qtd_aulas": 0,
-		   "professor": []
+		   "professor": ""
 	   }
 ```
 
