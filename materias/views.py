@@ -1,4 +1,3 @@
-from django.contrib.auth.models import User
 from accounts.permissions import Instructor
 from .models import RegisterMaterias
 from .serializers import MateriasSerializer
@@ -60,9 +59,7 @@ class Materias(APIView):
 
     def get(self, request):
         
-        user = request.user
-     
-        materias = RegisterMaterias.objects.filter(user=user)
+        materias = RegisterMaterias.objects.all()
         if materias:
             serializer = MateriasSerializer(materias, many=True) 
             return Response(serializer.data, status=200)
