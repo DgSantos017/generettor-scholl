@@ -60,7 +60,9 @@ class Materias(APIView):
 
     def get(self, request):
         
-        materias = RegisterMaterias.objects.all()
+        user = request.user
+     
+        materias = RegisterMaterias.objects.filter(user=user)
         if materias:
             serializer = MateriasSerializer(materias, many=True) 
             return Response(serializer.data, status=200)

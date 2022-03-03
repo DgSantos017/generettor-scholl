@@ -62,9 +62,10 @@ class Turmas(APIView):
     
 
     def get(self, request):
-        # request_user = request.user
 
-        turma = RegisterTurmas.objects.all()
+        user = request.user
+
+        turma = RegisterTurmas.objects.filter(user=user)
         if turma:
             serializer = TurmaSerializer(turma, many=True) 
             return Response(serializer.data, status=200)
