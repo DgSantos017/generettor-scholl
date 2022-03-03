@@ -1,6 +1,6 @@
 from pathlib import Path
-from  corsheaders.defaults import default_methods 
-from  corsheaders.defaults import default_headers 
+# from  corsheaders.defaults  import  default_methods 
+# from  corsheaders.defaults  import  default_headers 
 import dj_database_url
 import os
 
@@ -22,8 +22,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'accounts',
     'materias',
-    'turmas',
-    'corsheaders'
+    'turmas'
+    # 'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -33,8 +33,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+    # 'corsheaders.middleware.CorsMiddleware'
 ]
 
 CORS_ALLOWED_ORIGINS  =  [ 
@@ -77,8 +77,8 @@ CORS_ALLOWED_ORIGINS  =  [
 
 CSRF_TRUSTED_ORIGINS  =  [ 
     "https://dgeneratord.herokuapp.com/", 
-    "http://localhost:8000", 
-    "http://localhost:3000"  
+    "http://localhost:8000/", 
+    "http://localhost:3000/"  
 ]
 
 MIDDLEWARE_CLASSES = [
