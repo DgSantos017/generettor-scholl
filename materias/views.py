@@ -46,7 +46,7 @@ class Materias(APIView):
         try:
             name_materia = request.data['name_materia']
     
-            materia = RegisterMaterias.objects.create(name_materia=name_materia, qtd_aulas = 0, professor = "")
+            materia = RegisterMaterias.objects.create(name_materia=name_materia, qtd_aulas = 0, professor = "", user=request.user)
             serializer = MateriasSerializer(materia)
             return Response(serializer.data, status=201)
 
@@ -59,12 +59,14 @@ class Materias(APIView):
 
     def get(self, request):
         
-        materias = RegisterMaterias.objects.all()
+        user = request.user
+
+        materias = RegisterMaterias.objects.filter(user=user)
         if materias:
             serializer = MateriasSerializer(materias, many=True) 
             return Response(serializer.data, status=200)
         else:
-            return {'Ainda não foi registrado nenhuma materia'}, 204
+            return Response({"error": "no materias created"}, status=404)
 
 
 class MateriaById(APIView):

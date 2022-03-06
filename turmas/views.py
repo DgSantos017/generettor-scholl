@@ -44,13 +44,12 @@ class RegistrationTurma(APIView):
 class Turmas(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [Instructor]
-
     def post(self, request):
         try:
             name_turma = request.data['name_turma']
             turno = request.data['turno']
 
-            turma = RegisterTurmas.objects.create(name_turma=name_turma, turno=turno)
+            turma = RegisterTurmas.objects.create(name_turma=name_turma, turno=turno, user=request.user)
             serializer = TurmaSerializer(turma)
             return Response(serializer.data, status=201)
 
@@ -62,13 +61,16 @@ class Turmas(APIView):
     
 
     def get(self, request):
+
+        user = request.user
         
-        turma = RegisterTurmas.objects.all()
+        turma = RegisterTurmas.objects.filter(user=user)
+        
         if turma:
             serializer = TurmaSerializer(turma, many=True) 
             return Response(serializer.data, status=200)
         else:
-            return {'Ainda não foi registrado nenhuma turma'}, 204
+            return Response({"error": "no classes created"}, status=404)
 
 
 class TurmaById(APIView):
